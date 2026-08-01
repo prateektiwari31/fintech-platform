@@ -1,7 +1,6 @@
 package com.fintech.platform.auth.entity;
 
 import com.fintech.platform.common.entity.BaseEntity;
-import com.fintech.platform.user.entity.Role;
 import com.fintech.platform.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;

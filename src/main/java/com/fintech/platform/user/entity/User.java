@@ -1,11 +1,14 @@
 package com.fintech.platform.user.entity;
 
+import com.fintech.platform.auth.entity.UserRole;
 import com.fintech.platform.common.entity.BaseEntity;
 import com.fintech.platform.common.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -42,10 +45,16 @@ public class User extends BaseEntity {
     private UserStatus status;
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean emailVerified = false;
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean mobileVerified = false;
 
     private LocalDateTime lastLogin;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<UserRole> userRoles = new HashSet<>();
 }

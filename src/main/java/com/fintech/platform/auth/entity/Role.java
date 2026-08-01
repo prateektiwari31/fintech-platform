@@ -13,15 +13,15 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "permissions")
-public class Permission extends BaseEntity {
+@Table(name = "roles")
+public class Role extends BaseEntity {
 
-    @Column(nullable = false, unique = true, length = 100)
-    private String name; // BOOK_FLIGHT,
+    @Column(nullable = false, unique = true, length = 50)
+    private String name;  // ADMIN,CUSTOMER
 
     @Column(length = 255)
     private String description;
 
-    @OneToMany(mappedBy = "permission", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<RolePermission> rolePermissions = new HashSet<>();
 }
