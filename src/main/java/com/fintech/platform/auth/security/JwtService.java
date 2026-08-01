@@ -65,6 +65,18 @@ public class JwtService {
     }
 
     /**
+     * Access Token Expiration Time
+     */
+    public long getAccessTokenExpiration() {
+        return accessTokenExpiration;
+    }
+    /**
+     * Refresh Token Expiration Time
+     */
+    public long getRefreshTokenExpiration() {
+        return refreshTokenExpiration;
+    }
+    /**
      * Extract Email
      */
     public String extractUsername(String token) {
